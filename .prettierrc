@@ -1,0 +1,21 @@
+{
+    "tabWidth": 4,
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "jsxSingleQuote": false,
+    "printWidth": 101,
+    "useTabs": false,
+    "overrides": [
+        {
+            "files": "*.sol",
+            "options": {
+                "useTabs": false,
+                "tabWidth": 4,
+                "printWidth": 100,
+                "explicitTypes": "preserve",
+                "proseWrap": "always"
+            }
+        }
+    ]
+}

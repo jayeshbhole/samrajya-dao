@@ -1,0 +1,24 @@
+{
+    "name": "samrajya-client",
+    "devDependencies": {
+        "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+        "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+        "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13",
+        "@nomiclabs/hardhat-etherscan": "^3.1.0",
+        "@openzeppelin/contracts": "^4.7.1",
+        "@openzeppelin/test-helpers": "^0.5.15",
+        "@types/mime": "^2.0.3",
+        "dotenv": "^16.0.1",
+        "ethers": "^5.6.9",
+        "hardhat": "^2.10.1",
+        "hardhat-contract-sizer": "^2.6.1",
+        "hardhat-deploy": "^0.11.11",
+        "hardhat-gas-reporter": "^1.0.8",
+        "mime": "^3.0.0",
+        "nft.storage": "^6.4.1",
+        "prettier": "^2.7.1",
+        "prettier-plugin-solidity": "^1.0.0-dev.23",
+        "solhint": "^3.3.7",
+        "solidity-coverage": "^0.7.21"
+    }
+}
