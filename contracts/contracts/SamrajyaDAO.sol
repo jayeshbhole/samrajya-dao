@@ -8,6 +8,12 @@ import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol";
 
+/// @title DAO Smart Contract for Samrajya
+/// @dev Purpose of the contract:
+/// 1. Proposals for funding chess players
+/// 2. Fund raising from the proposal
+/// 3. Distributing $RAJ token to contribtors
+
 contract SamrajyaDAO is
     Governor,
     GovernorSettings,
@@ -16,15 +22,21 @@ contract SamrajyaDAO is
     GovernorVotesQuorumFraction,
     GovernorTimelockControl
 {
-    constructor(IVotes _token, TimelockController _timelock)
+    constructor(
+        IVotes _token,
+        TimelockController _timelock,
+        uint _quorunPercentage,
+        uint _votingPeriod,
+        uint _votingDelay
+    )
         Governor("SamrajyaDAO")
         GovernorSettings(
-            5, /* 5 block */
-            30, /* 30 blocks */
+            _votingDelay, /* 5 block */
+            _votingPeriod, /* 30 blocks */
             1000e18
         )
         GovernorVotes(_token)
-        GovernorVotesQuorumFraction(4)
+        GovernorVotesQuorumFraction(_quorunPercentage)
         GovernorTimelockControl(_timelock)
     {}
 
@@ -74,6 +86,8 @@ contract SamrajyaDAO is
         return super.proposalThreshold();
     }
 
+    // Internal Functions
+
     function _execute(
         uint256 proposalId,
         address[] memory targets,
@@ -101,6 +115,8 @@ contract SamrajyaDAO is
     {
         return super._executor();
     }
+
+    // Public Functions
 
     function supportsInterface(bytes4 interfaceId)
         public
