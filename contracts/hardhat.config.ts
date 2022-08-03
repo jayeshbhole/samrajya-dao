@@ -19,7 +19,15 @@ const getSecret = (name: string): string => {
 };
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.9",
+    solidity: {
+        version: "0.8.4",
+        settings: {
+            optimizer: {
+                enabled: true,
+                runs: 200,
+            },
+        },
+    },
     networks: {
         localhost: {
             allowUnlimitedContractSize: true,
@@ -54,31 +62,31 @@ const config: HardhatUserConfig = {
         goerli: {
             url: getSecret("GOERLI_URL"),
             accounts: getSecret("PRIVATE_KEY") !== undefined ? [getSecret("PRIVATE_KEY")] : [],
-            // verify: {
-            //     etherscan: {
-            //         apiKey: getSecret("ETHERSCAN_API_KEY"),
-            //     },
-            // },
+            verify: {
+                etherscan: {
+                    apiKey: getSecret("ETHERSCAN_API_KEY"),
+                },
+            },
         },
 
         rinkeby: {
             url: getSecret("RINKEBY_URL"),
             accounts: getSecret("PRIVATE_KEY") !== undefined ? [getSecret("PRIVATE_KEY")] : [],
-            // verify: {
-            //     etherscan: {
-            //         apiKey: getSecret("ETHERSCAN_API_KEY"),
-            //     },
-            // },
+            verify: {
+                etherscan: {
+                    apiKey: getSecret("ETHERSCAN_API_KEY"),
+                },
+            },
         },
 
         mumbai: {
             url: getSecret("MUMBAI_URL"),
             accounts: getSecret("PRIVATE_KEY") !== undefined ? [getSecret("PRIVATE_KEY")] : [],
-            // verify: {
-            //     etherscan: {
-            //         apiKey: getSecret("POLYSCAN_API_KEY"),
-            //     },
-            // },
+            verify: {
+                etherscan: {
+                    apiKey: getSecret("POLYSCAN_API_KEY"),
+                },
+            },
         },
     },
     etherscan: {
