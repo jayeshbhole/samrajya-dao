@@ -14,7 +14,7 @@ import "@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.so
 /// 2. Fund raising from the proposal
 /// 3. Distributing $RAJ token to contribtors
 
-contract SamrajyaDAO is
+contract GovernorContract is
     Governor,
     GovernorSettings,
     GovernorCountingSimple,

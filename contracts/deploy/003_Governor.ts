@@ -17,9 +17,9 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     const timeLock = await get("Timelock");
 
     log("----------------------------------------------------\n");
-    log("Deploying Governor SamrajyaDAO and waiting for confirmations...");
+    log("Deploying Governor and waiting for confirmations...");
 
-    const governorContract = await deploy("SamrajyaDAO", {
+    const governorContract = await deploy("GovernorContract", {
         from: deployer,
         args: [
             governanceToken.address,
@@ -40,4 +40,4 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 };
 
 export default func;
-module.exports.tags = ["NFTFactory", "all"];
+module.exports.tags = ["Governor", "all"];

@@ -33,7 +33,7 @@ const config: HardhatUserConfig = {
             allowUnlimitedContractSize: true,
             url: "http://localhost:8545",
             accounts: [getSecret("PRIVATE_KEY"), getSecret("PRIVATE_KEY2")],
-            // saveDeployments: true,
+            saveDeployments: false,
         },
         hardhat: {
             chainId: 31337,

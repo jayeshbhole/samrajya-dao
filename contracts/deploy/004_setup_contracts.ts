@@ -10,7 +10,7 @@ const setupContracts: DeployFunction = async function (hre: HardhatRuntimeEnviro
 
     const governanceToken = await ethers.getContract("RAJToken", deployer);
     const timeLock = await ethers.getContract("Timelock", deployer);
-    const governor = await ethers.getContract("SamrajyaDAO", deployer);
+    const governor = await ethers.getContract("GovernorContract", deployer);
 
     log("----------------------------------------------------");
     log("Setting up contracts for roles...");
