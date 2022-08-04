@@ -1,0 +1,24 @@
+{
+    "name": "samrajya-dao",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "cloud": "moralis-admin-cli watch-cloud-folder --autoSave 1 --moralisCloudfolder ./Moralis/cloud",
+        "getLogs": "moralis-admin-cli get-logs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jayeshbhole/samrajya-dao.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jayeshbhole/samrajya-dao/issues"
+    },
+    "homepage": "https://github.com/jayeshbhole/samrajya-dao#readme",
+    "dependencies": {
+        "moralis": "^1.11.0"
+    }
+}
