@@ -5,7 +5,6 @@ import { networkConfig, developmentChains, ADDRESS_ZERO } from "../helper-hardha
 import { ethers } from "hardhat"
 
 const setupContracts: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-    // @ts-ignore
     const { getNamedAccounts, deployments, network } = hre
     const { log } = deployments
     const { deployer } = await getNamedAccounts()

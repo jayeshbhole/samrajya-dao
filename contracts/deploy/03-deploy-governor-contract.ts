@@ -10,7 +10,6 @@ import {
 } from "../helper-hardhat-config"
 
 const deployGovernorContract: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-    // @ts-ignore
     const { getNamedAccounts, deployments, network } = hre
     const { deploy, log, get } = deployments
     const { deployer } = await getNamedAccounts()

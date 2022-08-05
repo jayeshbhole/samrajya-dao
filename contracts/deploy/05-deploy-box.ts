@@ -5,7 +5,6 @@ import { networkConfig, developmentChains } from "../helper-hardhat-config"
 import { ethers } from "hardhat"
 
 const deployBox: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-    // @ts-ignore
     const { getNamedAccounts, deployments, network } = hre
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
