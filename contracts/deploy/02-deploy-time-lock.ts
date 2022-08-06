@@ -9,9 +9,14 @@ const deployTimeLock: DeployFunction = async function (hre: HardhatRuntimeEnviro
     const { deployer } = await getNamedAccounts()
     log("----------------------------------------------------")
     log("Deploying TimeLock and waiting for confirmations...")
+
+    const usdcAddress =
+        network.name === "hardhat" || network.name === "localhost"
+            ? (await deployments.get("USDC")).address
+            : ""
     const timeLock = await deploy("TimeLock", {
         from: deployer,
-        args: [MIN_DELAY, [], []],
+        args: [MIN_DELAY, [], [], usdcAddress],
         log: true,
         // we need to wait if on a live network so we can verify properly
         waitConfirmations: networkConfig[network.name].blockConfirmations || 1,

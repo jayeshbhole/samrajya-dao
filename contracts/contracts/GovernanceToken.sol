@@ -2,8 +2,9 @@
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract GovernanceToken is ERC20Votes {
+contract GovernanceToken is ERC20Votes, Ownable {
     uint256 public s_maxSupply = 1000000000000000000000000;
 
     constructor() ERC20("RAJToken", "RAJ") ERC20Permit("RAJToken") {
@@ -18,6 +19,10 @@ contract GovernanceToken is ERC20Votes {
         uint256 amount
     ) internal override(ERC20Votes) {
         super._afterTokenTransfer(from, to, amount);
+    }
+
+    function mint(address to, uint256 amount) external onlyOwner {
+        _mint(to, amount);
     }
 
     function _mint(address to, uint256 amount) internal override(ERC20Votes) {
