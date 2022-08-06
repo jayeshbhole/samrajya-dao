@@ -29,6 +29,7 @@ contract TimeLock is TimelockController {
 
     function donate(uint256 _amount) public {
         _USDC.transferFrom(msg.sender, address(this), _amount);
+        _govToken.mint(msg.sender, _amount);
         treasuryBalance += _amount;
         emit Donated(_amount, msg.sender);
     }

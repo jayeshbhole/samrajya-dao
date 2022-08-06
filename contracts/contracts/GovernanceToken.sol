@@ -5,10 +5,8 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract GovernanceToken is ERC20Votes, Ownable {
-    uint256 public s_maxSupply = 1000000000000000000000000;
-
     constructor() ERC20("RAJToken", "RAJ") ERC20Permit("RAJToken") {
-        _mint(msg.sender, s_maxSupply);
+        _mint(msg.sender, 1000000000000000000000000);
     }
 
     // The functions below are overrides required by Solidity.
