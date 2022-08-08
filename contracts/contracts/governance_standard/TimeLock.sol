@@ -36,7 +36,6 @@ contract TimeLock is TimelockController {
 
     function sponsor(address _receiver, uint256 _amount) public {
         // require receiver to be whitelisted
-
         _USDC.transfer(_receiver, _amount);
         treasuryBalance -= _amount;
     }

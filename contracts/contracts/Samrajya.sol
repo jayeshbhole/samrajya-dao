@@ -31,6 +31,7 @@ contract Samrajya is Ownable {
 
     function donate(uint256 _amount) public {
         _USDC.transferFrom(msg.sender, address(this), _amount);
+        _govToken.transfer(msg.sender, _amount);
         emit Donated(_amount);
     }
 
